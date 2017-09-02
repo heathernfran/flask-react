@@ -2,10 +2,10 @@
 <html lang='en'>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Flask and React</title>
   </head>
   <body>
     <div id='root'></div>
   </body>
-  <script src="../dist/bundle.js"></script>
+  <script src="{{ url_for('static', filename='bundle.js') }}"></script>
 </html>

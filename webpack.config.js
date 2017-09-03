@@ -2,7 +2,7 @@ var webpack = require('webpack')
 var path = require('path')
 
 module.exports = {
-  entry: './components/index.jsx',
+  entry: './components/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'static')

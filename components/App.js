@@ -9,12 +9,12 @@ export default class App extends Component {
   }
   
   componentDidMount() {
-    return fetch('https://launchlibrary.net/1.2/location')
+    return fetch('https://launchlibrary.net/1.2/pad/launch%20complex')
             .then((response) => response.json())
             .then((json) => {
               console.log(json)
               this.setState({
-                data: json.locations
+                data: json.pads
               })
             })
             .catch((error) => {
@@ -30,6 +30,8 @@ export default class App extends Component {
           return (
             <div key={value.id}>
               {value.name}
+              Latitude: {value.latitude}
+              Longitude: {value.longitude}
             </div>
           )
         })}

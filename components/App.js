@@ -25,6 +25,11 @@ export default class App extends Component {
             })
   }
   
+  // Round results for latitude and longitude coordinates
+  _roundCoordinates(val) {
+    return Math.round(val * 1000) / 1000
+  }
+  
   render() {
     const styles = {
       width: '100vw',
@@ -43,8 +48,8 @@ export default class App extends Component {
             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' />
             {this.state.data.map((value) => {
-              let lat = Math.round(value.latitude * 1000) / 1000, 
-                  lng = Math.round(value.longitude * 1000) / 1000
+              let lat = this._roundCoordinates(value.latitude), 
+                  lng = this._roundCoordinates(value.longitude)
               return (
                 <Marker 
                   key={value.id}

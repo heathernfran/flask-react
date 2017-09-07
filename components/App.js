@@ -43,13 +43,14 @@ export default class App extends Component {
             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' />
             {this.state.data.map((value) => {
+              let lat = Math.round(value.latitude * 1000) / 1000, 
+                  lng = Math.round(value.longitude * 1000) / 1000
               return (
                 <Marker 
                   key={value.id}
-                  position={{lat: value.latitude}, {lng: value.longitude}}
-                  >
+                  position={[lat, lng]}>
                   <Popup>
-                    <span>{value.text}</span>
+                    <span>{value.name}</span>
                   </Popup>
                 </Marker>
               )

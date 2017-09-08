@@ -15,7 +15,6 @@ export default class App extends Component {
     return fetch('https://launchlibrary.net/1.2/pad/launch%20complex')
             .then((response) => response.json())
             .then((json) => {
-              console.log(json)
               this.setState({
                 data: json.pads
               })
